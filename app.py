@@ -1,26 +1,25 @@
 from flask import Flask
-from sqlalchemy import create_engine
+
+# from sqlalchemy import create_engine
 from scrape import run
 import os
 
 app = Flask(__name__)
 
-app.config.from_object(os.environ['APP_SETTINGS'])
-engine = create_engine(os.environ['DATABASE_URL'])
+app.config.from_object(os.environ["APP_SETTINGS"])
+# engine = create_engine(os.environ['DATABASE_URL'])
 
-@app.route('/')
+
+@app.route("/")
 def hello():
     return "Hello World!"
 
 
-@app.route('/<name>')
-def hello_name(name):
-    return "Hello {}!".format(name)
+@app.route("/start")
+def start():
+    run(page_number=1, min_date="20000101", max_date="20070316")
+    return "finished!"
 
-@app.route('/start/<date>')
-def start(date):
-    run(1, '20020101')
-    return 'hey'
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()

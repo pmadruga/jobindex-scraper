@@ -3,4 +3,4 @@
 lib/
 bin/
 .vscode
-__pycache__
+__pycache__/

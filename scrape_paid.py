@@ -103,7 +103,7 @@ def scrape_paid(soup, engine):
         print(job_title, job_location, job_date)
 
         query = text(
-            "INSERT INTO jobindex(title, company, location, description, description_img, source, date, company_rating, company_rating_amount, ratings_link, link, type) VALUES(:title, :company, :location, :description, :description_img, :source, :date, :company_rating, :company_rating_amount, :ratings_link, :link, :type)"
+            "INSERT INTO jobindex_v2(title, company, location, description, description_img, source, date, company_rating, company_rating_amount, ratings_link, link, type) VALUES(:title, :company, :location, :description, :description_img, :source, :date, :company_rating, :company_rating_amount, :ratings_link, :link, :type)"
         )
 
         engine.connect().execute(

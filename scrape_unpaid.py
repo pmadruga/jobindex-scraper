@@ -7,8 +7,6 @@ def scrape_unpaid(soup, engine):
     last_post_date = None
 
     for (index, job) in enumerate(job_postings_free):
-        # print(index+1)
-
         job_company_rating_amount = None
         job_company_rating = None
         job_ratings_link = None
@@ -33,7 +31,9 @@ def scrape_unpaid(soup, engine):
         else:
             job_description = job.find_all("br")[0].next_sibling
 
-        job_source = job.find("cite").get_text()
+        if(job.find('cite') != None):
+            job_source = job.find("cite").get_text()
+        
         job_date = job.find("time").attrs["datetime"]
 
         if job.find(class_="num-ratings") != None:

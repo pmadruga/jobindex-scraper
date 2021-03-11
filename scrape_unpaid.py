@@ -49,7 +49,7 @@ def scrape_unpaid(soup, engine):
 
         ## write to database
         query = text(
-            "INSERT INTO jobindex_v2(title, company, location, description, description_img, source, date, company_rating, company_rating_amount, ratings_link, link, type) VALUES(:title, :company, :location, :description, :description_img, :source, :date, :company_rating, :company_rating_amount, :ratings_link, :link, :type)"
+            "INSERT INTO jobindex_2021(title, company, location, description, description_img, source, date, company_rating, company_rating_amount, ratings_link, link, type) VALUES(:title, :company, :location, :description, :description_img, :source, :date, :company_rating, :company_rating_amount, :ratings_link, :link, :type)"
         )
 
         engine.connect().execute(
